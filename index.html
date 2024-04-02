@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="datatables.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="modal fade" id="examplemodal" data-bs-backdrop="static" data-bs-keyboard="false" >
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            Food insert form
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="closebtn"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label for="category-name" class="form-label">Category name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control w-25" id="category-name" placeholder="Drinks">
+                                        
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="category-desc" class="form-label">Category description</label>
+                                        <textarea class="form-control" id="category-desc" cols="30" rows="5" placeholder="Soft drinks to chill"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="category-active">Active</label>
+                                        <input type="checkbox" id="category-active" checked>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="launch-date" class="form-label">Launch date<span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control w-25" id="launch-date">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="container-fluid d-flex justify-content-between">
+                                <h4>Add Item</h4>
+                                <button class="btn btn-info " id="addrow">+</button>
+                            </div>
+                            <div class="container-fluid mt-3 table-responsive ">
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <th>Sr No.</th>
+                                        <th>Item name</th>
+                                        <th>Item description</th>
+                                        <th>Food type</th>
+                                        <th>Price</th>
+                                        <th>Discount</th>
+                                        <th>gst</th>
+                                        <th>Active</th>
+                                        <th>Actions</th>
+                                    </thead>
+                                    <tbody id="item-list">
+                                        <tr class="rowdata">
+                                            <td>1</td>
+                                            <td>
+                                                <input type="text" class="form-control ">
+                                                <div class="text-danger"></div>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control ">
+                                                <div class="text-danger"></div>
+                                            </td>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option value="dairyfood">dairyfood</option>
+                                                    <option value="seafood">seafood</option>
+                                                    <option value="vegan">vegan</option>
+                                                    <option value="veg" selected>veg</option>
+                                                    <option value="nonveg">nonveg</option>
+                                                </select>
+                                                <div class="text-danger"></div>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control ">
+                                                <div class="text-danger"></div>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control " >
+                                                <div class="text-danger"></div>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control ">
+                                                <div class="text-danger"></div>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" checked>
+
+                                            </td>
+                                            <td>
+                                                <button class="btn-danger delete btn" disabled>-</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center ">
+                        <button class="btn btn-success" id="submitbtn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid d-flex justify-content-center m-3">
+            <h3>Food items</h3>
+        </div>
+        <div class="container-fluid d-flex justify-content-end p-3">
+            <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#examplemodal"
+                id="adddata">
+                Add data
+            </button>
+        </div>
+
+        <div class="container-fluid table-responsive ">
+            <table id="mytable" class="table table-bordered table-striped">
+                <thead>
+                    <th>Show items</th>
+                    <th>Category name</th>
+                    <th>Category description</th>
+                    <th>Active</th>
+                    <th>New Category</th>
+                    <th>Action</th>
+                </thead>
+                <tbody id="food-list">
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="btn btn-warning edit">edit</button><button class=" ms-2 btn btn-danger delete">delete</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <select  class="form-select" value="veg">
+        <option value="dairyfood">dairyfood</option>
+        <option value="seafood">seafood</option>
+        <option value="vegan">vegan</option>
+        <option value="veg">veg</option>
+        <option value="nonveg">nonveg</option>
+    </select> -->
+
+
+
+
+    <script src="jquery.js"></script>
+    <script src="datatables.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
